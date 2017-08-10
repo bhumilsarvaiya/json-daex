@@ -6,7 +6,7 @@ npm install json-daex -s
 # About
 This project is currently in very early stage. Please feel free to share any idea to make this package better.
 
-Currently, you will be able to get index of objects from a JSON array based on the query passed.
+Currently, you will be able to get index of objects or objects from a JSON array based on the query passed.
 
 # Currently supported functions and query:
 
@@ -58,6 +58,24 @@ console.log(daex.indexFirstN(obj,{'type':'array'},2))
 console.log(daex.indexLastN(obj,{'type':'array'},2))
 //get index of last 2 objects with type: array
 
+console.log(daex.getAll(obj,{'type':'array'}))
+//get all objects with type: array
+
+console.log(daex.getAll(obj,{'type':'array','age':20}))
+//get all objects with type: array and age: 20
+
+console.log(daex.getFirst(obj,{'type':'array'}))
+//get first object with type: array
+
+console.log(daex.getLast(obj,{'type':'array'}))
+//get last object with type: array
+
+console.log(daex.getFirstN(obj,{'type':'array'},2))
+//get first 2 objects with type: array
+
+console.log(daex.getLastN(obj,{'type':'array'},2))
+//get last 2 objects with type: array
+
 // Output:
 // [ 0, 2, 3 ]
 // [ 0 , 3 ]
@@ -65,4 +83,15 @@ console.log(daex.indexLastN(obj,{'type':'array'},2))
 // 0
 // [ 0, 2, 3 ]
 // [ 0, 2, 3 ]
+// [ { name: 'abc', type: 'array', age: 20 },
+//   { name: 'xyz', type: 'array', age: 22 },
+//   { name: 'ghi', type: 'array', age: 20 } ]
+// [ { name: 'abc', type: 'array', age: 20 },
+//   { name: 'ghi', type: 'array', age: 20 } ]
+// { name: 'abc', type: 'array', age: 20 }
+// { name: 'ghi', type: 'array', age: 20 }
+// [ { name: 'abc', type: 'array', age: 20 },
+//   { name: 'xyz', type: 'array', age: 22 } ]
+// [ { name: 'xyz', type: 'array', age: 22 },
+//   { name: 'ghi', type: 'array', age: 20 } ]
 ```
