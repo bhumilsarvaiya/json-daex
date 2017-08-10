@@ -81,8 +81,8 @@ console.log(daex.getLastN(obj,{'type':'array'},2))
 // [ 0 , 3 ]
 // 3
 // 0
-// [ 0, 2, 3 ]
-// [ 0, 2, 3 ]
+// [ 0, 2 ]
+// [ 2, 3 ]
 // [ { name: 'abc', type: 'array', age: 20 },
 //   { name: 'xyz', type: 'array', age: 22 },
 //   { name: 'ghi', type: 'array', age: 20 } ]
