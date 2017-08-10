@@ -21,7 +21,7 @@ module.exports.indexAll = function (a, q){
 }
 
 module.exports.indexFirst = function (a, q){
-  var ix;
+  var ix = null;
   if(a instanceof Array){
     for (var i in a){
       var b = true;
@@ -98,7 +98,7 @@ module.exports.indexLastN = function (a, q, n){
 }
 
 module.exports.indexLast = function (a, q){
-  var ix;
+  var ix = null;
   if(a instanceof Array){
     for (var i = a.length-1; i>=0; i--){
       var b = true;
