@@ -1,5 +1,5 @@
 function notArrayError(){
-  console.log('\x1b[31m%s\x1b[0m','... object is not of type array')
+  throw new Error('object is not of type array')
 }
 
 module.exports.indexAll = function (a, q){
@@ -20,7 +20,6 @@ module.exports.indexAll = function (a, q){
     return ix
   }else{
     notArrayError()
-    return null
   }
 }
 
@@ -43,7 +42,6 @@ module.exports.indexFirst = function (a, q){
     return ix
   }else{
     notArrayError()
-    return null
   }
 }
 
@@ -70,7 +68,6 @@ module.exports.indexFirstN = function (a, q, n){
     return ix
   }else{
     notArrayError()
-    return null
   }
 }
 
@@ -97,7 +94,6 @@ module.exports.indexLastN = function (a, q, n){
     return ix.reverse()
   }else{
     notArrayError()
-    return null
   }
 }
 
@@ -120,7 +116,6 @@ module.exports.indexLast = function (a, q){
     return ix
   }else{
     notArrayError()
-    return null
   }
 }
 
@@ -142,7 +137,6 @@ module.exports.getAll = function (a, q){
     return ix
   }else{
     notArrayError()
-    return null
   }
 }
 
@@ -165,7 +159,6 @@ module.exports.getFirst = function (a, q){
     return ix
   }else{
     notArrayError()
-    return null
   }
 }
 
@@ -192,7 +185,6 @@ module.exports.getFirstN = function (a, q, n){
     return ix
   }else{
     notArrayError()
-    return null
   }
 }
 
@@ -219,7 +211,6 @@ module.exports.getLastN = function (a, q, n){
     return ix.reverse()
   }else{
     notArrayError()
-    return null
   }
 }
 
@@ -242,6 +233,65 @@ module.exports.getLast = function (a, q){
     return ix
   }else{
     notArrayError()
-    return null
+  }
+}
+
+module.exports.count = function (a, q){
+  var counter = 0
+  if(a instanceof Array){
+    for (var i in a){
+      var b = true
+      for(k in q){
+        if(a[i][k]!=q[k]){
+          b = false
+          break
+        }
+      }
+      if(b){
+        counter++
+      }
+    }
+    return counter
+  }else{
+    notArrayError()
+  }
+}
+
+module.exports.in = function (a, q){
+  if(a instanceof Array){
+    for (var i in a){
+      var b = true
+      for(k in q){
+        if(a[i][k]!=q[k]){
+          b = false
+          break
+        }
+      }
+      if(b){
+        return true
+      }
+    }
+    return false
+  }else{
+    notArrayError()
+  }
+}
+
+module.exports.except = function (a, q){
+  var ix = []
+  if(a instanceof Array){
+    for (var i in a){
+      var b = true
+      for(k in q){
+        if(a[i][k]!=q[k]){
+          b = false
+          ix.push(a[i])
+          break
+        }
+      }
+    }
+    return ix
+  }else{
+    notArrayError()
   }
 }
