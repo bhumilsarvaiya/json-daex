@@ -97,8 +97,12 @@ console.log(daex.count(obj,{'type':'array'}))
 //count objects with type: array
 // Output: 3
 
-console.log(daex.in(obj,{'type':'array'}))
+console.log(daex.inArray(obj,{'type':'array'}))
 //check if there exists any object with type: array
+// Output: true
+
+console.log(daex.inObject(obj[1],{'type':'array'}))
+//check if there exists type: array (key-value pair) in object
 // Output: true
 
 console.log(daex.except(obj,{'type':'array'}))

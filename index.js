@@ -2,6 +2,10 @@ function notArrayError(){
   throw new Error('object is not of type array')
 }
 
+function notObjectError(){
+  throw new Error('object type error')
+}
+
 module.exports.indexAll = function (a, q){
   var ix = []
   if(a instanceof Array){
@@ -257,7 +261,7 @@ module.exports.count = function (a, q){
   }
 }
 
-module.exports.in = function (a, q){
+module.exports.inArray = function (a, q){
   if(a instanceof Array){
     for (var i in a){
       var b = true
@@ -274,6 +278,19 @@ module.exports.in = function (a, q){
     return false
   }else{
     notArrayError()
+  }
+}
+
+module.exports.inObject = function (a, q){
+  if(typeof a == 'object' && !(a instanceof Array)){
+    for(k in q){
+      if(a[k]!=q[k]){
+        return false
+      }
+    }
+    return true
+  }else{
+    notObjectError()
   }
 }
 

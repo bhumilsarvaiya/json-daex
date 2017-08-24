@@ -1,6 +1,6 @@
 {
   "name": "json-daex",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "extract index of required elements from array satisfying your query",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "index"
   ],
   "author": "bhumilsarvaiya",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/bhumilsarvaiya/json-daex/issues"
   },
