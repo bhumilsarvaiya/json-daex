@@ -8,6 +8,9 @@ This project is currently in very early stage. Please feel free to share any ide
 
 Currently, you will be able to get index of objects or objects from a JSON array based on the query passed.
 
+# Documentation
++ json-daex [wiki](https://github.com/bhumilsarvaiya/json-daex/wiki)
+
 # Currently supported functions and query:
 
 ```javascript
