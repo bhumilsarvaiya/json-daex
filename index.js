@@ -180,7 +180,7 @@ module.exports.except = function (a, q) {
   else notArrayError()
 }
 
-module.exports.update = function (a, v, q) {
+module.exports.updateObject = function (a, v, q) {
   if (typeof a == 'object' && !(a instanceof Array)) {
     if (q == undefined || this.inObject(a, q)) for (k in v) a[k] = v[k]
   }
@@ -273,7 +273,7 @@ module.exports.removeFirstN = function (a, n, q) {
     n = (n > a.length) ? a.length : n
     if (q == undefined) a.splice(0, n)
     else {
-      var t = this.indexFirstN(a, q, n).reverse()
+      var t = this.indexFirstN(a, n, q).reverse()
       for (var i in t) a.splice(t[i], 1)
     }
   }
@@ -293,7 +293,7 @@ module.exports.removeLastN = function (a, n, q) {
     n = (n > a.length) ? a.length : n
     if (q == undefined) a.splice(a.length - n, n)
     else {
-      var t = this.indexLastN(a, q, n).reverse()
+      var t = this.indexLastN(a, n, q).reverse()
       for (var i in t) a.splice(t[i], 1)
     }
   }
