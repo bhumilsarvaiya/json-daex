@@ -325,3 +325,18 @@ module.exports.renameFields = function (a, f, q) {
   }
   else notArrayError()
 }
+
+module.exports.alterFields = function (a, q) {
+  if (a instanceof Array) for (var k in a) this.alterFields(a[k], q)
+  else if (typeof a == 'object') {
+    for (k in a) {
+      if (a[k] instanceof Array || typeof a[k] == 'object') this.alterFields(a[k], q)
+      for (f in q) if (k.indexOf(f) !== -1) {
+        var t = a[k]
+        delete a[k]
+        a[k.replace(f, q[f])] = t
+      }
+    }
+  }
+  else notObjectError()
+}
