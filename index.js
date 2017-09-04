@@ -327,7 +327,7 @@ module.exports.renameFields = function (a, f, q) {
 }
 
 module.exports.alterFields = function (a, q) {
-  if (a instanceof Array) for (var k in a) if (typeof a[k] == 'object' || a[k] instanceof Array) this.alterFields(a[k], q)
+  if (a instanceof Array) for (var k in a) this.alterFields(a[k], q)
   else if (typeof a == 'object') {
     for (k in a) {
       if (a[k] instanceof Array || typeof a[k] == 'object') this.alterFields(a[k], q)
@@ -338,5 +338,4 @@ module.exports.alterFields = function (a, q) {
       }
     }
   }
-  else notObjectError()
 }
