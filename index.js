@@ -338,5 +338,4 @@ module.exports.alterFields = function (a, q) {
       }
     }
   }
-  else notObjectError()
 }
