@@ -335,6 +335,7 @@ module.exports.alterFields = function (a, q) {
         var t = a[k]
         delete a[k]
         a[k.replace(f, q[f])] = t
+        k = k.replace(f, q[f])
       }
     }
   }
